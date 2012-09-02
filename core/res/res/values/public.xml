@@ -214,6 +214,7 @@
   <java-symbol type="id" name="status_bar_latest_event_content" />
   <java-symbol type="id" name="action_divider" />
   <java-symbol type="id" name="overflow_divider" />
+  <java-symbol type="id" name="openurl" />
 
   <java-symbol type="attr" name="actionModeShareDrawable" />
   <java-symbol type="attr" name="alertDialogCenterButtons" />
@@ -252,6 +253,7 @@
   <java-symbol type="bool" name="config_sip_wifi_only" />
   <java-symbol type="bool" name="config_sms_capable" />
   <java-symbol type="bool" name="config_sms_utf8_support" />
+  <java-symbol type="bool" name="config_smsSamsungCdmaAlternateMessageIDEncoding" />
   <java-symbol type="bool" name="config_swipeDisambiguation" />
   <java-symbol type="bool" name="config_telephony_use_own_number_for_voicemail" />
   <java-symbol type="bool" name="config_ui_enableFadingMarquee" />
@@ -3679,6 +3681,8 @@
   <java-symbol type="integer" name="config_deviceHardwareKeys" />
   <java-symbol type="bool" name="config_noDelayInATwoDP" />
   <java-symbol type="bool" name="config_smsSamsungCdmaAlternateMessageIDEncoding" />
+
+  <java-symbol type="bool" name="config_samsung_stk" />
 
   <!-- Notification and battery light -->
   <java-symbol type="bool" name="config_intrusiveBatteryLed" />
