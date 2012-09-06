@@ -17,6 +17,13 @@
 
 package android.app;
 
+import com.android.internal.app.IAssetRedirectionManager;
+import com.android.internal.os.BinderInternal;
+import com.android.internal.os.RuntimeInit;
+import com.android.internal.os.SamplingProfilerIntegration;
+
+import org.apache.harmony.xnet.provider.jsse.OpenSSLSocketImpl;
+
 import android.app.backup.BackupAgent;
 import android.content.BroadcastReceiver;
 import android.content.ComponentCallbacks2;
@@ -25,13 +32,13 @@ import android.content.ContentProvider;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.IContentProvider;
-import android.content.Intent;
 import android.content.IIntentReceiver;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
 import android.content.pm.IPackageManager;
 import android.content.pm.InstrumentationInfo;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ProviderInfo;
@@ -89,13 +96,6 @@ import android.view.WindowManager;
 import android.view.WindowManagerImpl;
 import android.renderscript.RenderScript;
 
-import com.android.internal.app.IAssetRedirectionManager;
-import com.android.internal.os.BinderInternal;
-import com.android.internal.os.RuntimeInit;
-import com.android.internal.os.SamplingProfilerIntegration;
-
-import org.apache.harmony.xnet.provider.jsse.OpenSSLSocketImpl;
-
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileOutputStream;
@@ -115,6 +115,9 @@ import java.util.regex.Pattern;
 import libcore.io.IoUtils;
 
 import dalvik.system.CloseGuard;
+import dalvik.system.VMRuntime;
+import android.os.SystemProperties;
+import java.lang.*;
 
 final class SuperNotCalledException extends AndroidRuntimeException {
     public SuperNotCalledException(String msg) {
@@ -1666,8 +1669,8 @@ public final class ActivityThread {
      *
      * @param assets
      * @param theme
-     * @return true if the AssetManager is now theme-aware; false otherwise
-     *         this can fail, for example, if the theme package has been
+     * @return true if the AssetManager is now theme-aware; false otherwise.
+     *         This can fail, for example, if the theme package has been been
      *         removed and the theme manager has yet to revert formally back to
      *         the framework default.
      */
@@ -4075,6 +4078,35 @@ public final class ActivityThread {
 
         // send up app name; do this *before* waiting for debugger
         Process.setArgV0(data.processName);
+
+        String str  = SystemProperties.get("dalvik.vm.heaputilization", "" );
+        if( !str.equals("") ){
+            float heapUtil = Float.valueOf(str.trim()).floatValue();
+            VMRuntime.getRuntime().setTargetHeapUtilization(heapUtil);
+            Log.d(TAG, "setTargetHeapUtilization:" + str );
+        }
+        int heapIdealFree  = SystemProperties.getInt("dalvik.vm.heapidealfree", 0 );
+        if( heapIdealFree > 0 ){
+            VMRuntime.getRuntime().setTargetHeapIdealFree(heapIdealFree);
+            Log.d(TAG, "setTargetHeapIdealFree:" + heapIdealFree );
+        }
+        int heapConcurrentStart  = SystemProperties.getInt("dalvik.vm.heapconcurrentstart", 0 );
+        if( heapConcurrentStart > 0 ){
+            VMRuntime.getRuntime().setTargetHeapConcurrentStart(heapConcurrentStart);
+            Log.d(TAG, "setTargetHeapConcurrentStart:" + heapConcurrentStart );
+        }
+
+        ////
+        ////If want to set application specific GC paramters, can use
+        ////the following check
+        ////
+        //if( data.processName.equals("com.android.gallery3d")) {
+        //    VMRuntime.getRuntime().setTargetHeapUtilization(0.25f);
+        //    VMRuntime.getRuntime().setTargetHeapIdealFree(12*1024*1024);
+        //    VMRuntime.getRuntime().setTargetHeapConcurrentStart(4*1024*1024);
+        //}
+
+
         android.ddm.DdmHandleAppName.setAppName(data.processName);
 
         if (data.persistent) {
@@ -4126,10 +4158,12 @@ public final class ActivityThread {
         appContext.init(data.info, null, this);
         final File cacheDir = appContext.getCacheDir();
 
-        // Provide a usable directory for temporary files
-        System.setProperty("java.io.tmpdir", cacheDir.getAbsolutePath());
+        if (cacheDir != null) {
+            // Provide a usable directory for temporary files
+            System.setProperty("java.io.tmpdir", cacheDir.getAbsolutePath());
 
-        setupGraphicsSupport(data.info, cacheDir);
+            setupGraphicsSupport(data.info, cacheDir);
+        }
 
         /**
          * For system applications on userdebug/eng builds, log stack
