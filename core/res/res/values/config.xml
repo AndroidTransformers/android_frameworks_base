@@ -267,10 +267,10 @@
     <string translatable="false" name="config_tether_apndata"></string>
 
     <!-- Boolean indicating whether the wifi chipset has dual frequency band support -->
-    <bool translatable="false" name="config_wifi_dual_band_support">true</bool>
+    <bool translatable="false" name="config_wifi_dual_band_support">false</bool>
 
     <!-- Boolean indicating whether the wifi chipset has p2p support -->
-    <bool translatable="false" name="config_wifi_p2p_support">true</bool>
+    <bool translatable="false" name="config_wifi_p2p_support">false</bool>
     <!-- Device type information conforming to Annex B format in WiFi Direct specification.
          The default represents a dual-mode smartphone -->
     <string translatable="false" name="config_wifi_p2p_device_type">10-0050F204-5</string>
@@ -279,7 +279,7 @@
          This mechanism allows the host to remain in suspend state and the dongle to actively
          scan and wake the host when a configured SSID is detected by the dongle. This chipset
          capability can provide power savings when wifi needs to be always kept on. -->
-    <bool translatable="false" name="config_wifi_background_scan_support">true</bool>
+    <bool translatable="false" name="config_wifi_background_scan_support">false</bool>
 
     <!-- Integer indicating wpa_supplicant scan interval in milliseconds -->
     <integer translatable="false" name="config_wifi_supplicant_scan_interval">15000</integer>
@@ -471,7 +471,7 @@
     <integer name="config_lowBatteryCloseWarningLevel">20</integer>
 
     <!-- Default color for notification LED. -->
-    <color name="config_defaultNotificationColor">#ffff0000</color>
+    <color name="config_defaultNotificationColor">#ff00ff00</color>
 
     <!-- Default LED on time for notification LED in milliseconds. -->
     <integer name="config_defaultNotificationLedOn">500</integer>
@@ -480,19 +480,19 @@
     <integer name="config_defaultNotificationLedOff">2000</integer>
 
     <!-- Default value for led color when battery is low on charge -->
-    <integer name="config_notificationsBatteryLowARGB">0xFFFF00FF</integer>
+    <integer name="config_notificationsBatteryLowARGB">0xFFFF0000</integer>
 
     <!-- Default value for led color when battery is medium charged -->
-    <integer name="config_notificationsBatteryMediumARGB">0xFFFF0000</integer>
+    <integer name="config_notificationsBatteryMediumARGB">0xFFFFFF00</integer>
 
     <!-- Default value for led color when battery is fully charged -->
-    <integer name="config_notificationsBatteryFullARGB">0xFF0000FF</integer>
+    <integer name="config_notificationsBatteryFullARGB">0xFF00FF00</integer>
 
     <!-- Default value for LED on time when the battery is low on charge in miliseconds -->
     <integer name="config_notificationsBatteryLedOn">125</integer>
 
     <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
-    <bool name="config_intrusiveNotificationLed">true</bool>
+    <bool name="config_intrusiveNotificationLed">false</bool>
 
     <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveBatteryLed">false</bool>
@@ -504,13 +504,13 @@
     <integer name="config_notificationsBatteryLedOff">2875</integer>
 
     <!-- Allow the menu hard key to be disabled in LockScreen on some devices -->
-    <bool name="config_disableMenuKeyInLockScreen">true</bool>
+    <bool name="config_disableMenuKeyInLockScreen">false</bool>
 
     <!-- Don't show lock screen before unlock screen (PIN/pattern/password) -->
     <bool name="config_enableLockBeforeUnlockScreen">false</bool>
 
     <!-- Diable lockscreen rotation by default -->
-    <bool name="config_enableLockScreenRotation">true</bool>
+    <bool name="config_enableLockScreenRotation">false</bool>
 
     <!-- Enable puk unlockscreen by default.
          If unlock screen is disabled, the puk should be unlocked through Emergency Dialer -->
@@ -541,55 +541,17 @@
 
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
-        <item>6</item>
-        <item>9</item>
-        <item>14</item>
-        <item>20</item>
-        <item>30</item>
-        <item>46</item>
-        <item>68</item>
-        <item>103</item>
-        <item>154</item>
-        <item>231</item>
-        <item>346</item>
-        <item>519</item>
-        <item>778</item>
-        <item>1168</item>
-        <item>1752</item>
-        <item>2627</item>
-        <item>3941</item>
-        <item>5912</item>
-        <item>8867</item>
     </integer-array>
 
+
     <!-- Minimum screen brightness allowed by the power manager. -->
-    <integer name="config_screenBrightnessDim">29</integer>
+    <integer name="config_screenBrightnessDim">20</integer>
 
     <!-- Array of output values for LCD backlight corresponding to the LUX values
          in the config_autoBrightnessLevels array.  This array should have size one greater
          than the size of the config_autoBrightnessLevels array.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>19</item>
-        <item>23</item>
-        <item>26</item>
-        <item>30</item>
-        <item>34</item>
-        <item>39</item>
-        <item>45</item>
-        <item>51</item>
-        <item>59</item>
-        <item>67</item>
-        <item>77</item>
-        <item>88</item>
-        <item>101</item>
-        <item>116</item>
-        <item>133</item>
-        <item>152</item>
-        <item>174</item>
-        <item>199</item>
-        <item>228</item>
-        <item>250</item>
     </integer-array>
 
     <!-- Array of output values for button backlight corresponding to the LUX values
@@ -604,26 +566,6 @@
          than the size of the config_autoBrightnessLevels array.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessKeyboardBacklightValues">
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
     </integer-array>
 
     <!-- Amount of time it takes for the light sensor to warm up in milliseconds.
@@ -649,10 +591,10 @@
     <bool name="config_enableWallpaperService">true</bool>
 
     <!-- Package name providing network location support. -->
-    <string name="config_networkLocationProviderPackageName">com.google.android.location</string>
+    <string name="config_networkLocationProviderPackageName" translatable="false">@null</string>
 
     <!-- Package name providing geocoder API support. -->
-    <string name="config_geocodeProviderPackageName">com.google.android.location</string>
+    <string name="config_geocodeProviderPackageName" translatable="false">@null</string>
 
     <!-- Boolean indicating if current platform supports bluetooth SCO for off call
     use cases -->
@@ -676,7 +618,7 @@
     <integer name="config_datause_throttle_kbitsps">300</integer>
 
     <!-- The default iface on which to monitor data use -->
-	 <string name="config_datause_iface">ppp0</string>
+    <string name="config_datause_iface" translatable="false">rmnet0</string>
 
     <!-- The default reduced-datarate notification mask -->
     <!-- 2 means give warning -->
@@ -815,10 +757,10 @@
 
     <!-- If this value is true, The mms content-disposition field is supported correctly.
          If false, Content-disposition fragments are ignored -->
-    <bool name="config_mms_content_disposition_support">false</bool>
+    <bool name="config_mms_content_disposition_support">true</bool>
 
     <!-- If this value is true, we handle Samsung CDMA's message ID method -->
-    <bool name="config_smsSamsungCdmaAlternateMessageIDEncoding">true</bool>
+    <bool name="config_smsSamsungCdmaAlternateMessageIDEncoding">false</bool>
 
     <!-- National Language Identifier codes for the following two config items.
          (from 3GPP TS 23.038 V9.1.1 Table 6.2.1.2.4.1):
@@ -861,7 +803,7 @@
     <integer-array name="config_sms_enabled_locking_shift_tables"></integer-array>
 
     <!-- Set to true if the RSSI should always display CDMA signal strength even on EVDO -->
-    <bool name="config_alwaysUseCdmaRssi">true</bool>
+    <bool name="config_alwaysUseCdmaRssi">false</bool>
 
 
     <!-- If this value is true, duplicate Source/Destination port fields
@@ -904,17 +846,17 @@
     <integer name="config_networkPolicyDefaultWarning">2048</integer>
 
     <!-- Set and Unsets WiMAX -->
-    <bool name="config_wimaxEnabled">true</bool>
+    <bool name="config_wimaxEnabled">false</bool>
     <!-- Location of the wimax framwork jar location -->
-    <string name="config_wimaxServiceJarLocation">/system/framework/wimax_service.jar</string>
+    <string name="config_wimaxServiceJarLocation" translatable="false"></string>
     <!-- Location of the wimax native library locaiton -->
-    <string name="config_wimaxNativeLibLocation">/system/lib/libSECmWiMAXcAPI.so</string>
+    <string name="config_wimaxNativeLibLocation" translatable="false"></string>
     <!-- Name of the wimax manager class -->
-    <string name="config_wimaxManagerClassname">android.net.fourG.wimax.Wimax4GManager</string>
+    <string name="config_wimaxManagerClassname" translatable="false"></string>
     <!-- Name of the wimax service class -->
-    <string name="config_wimaxServiceClassname">com.android.server.WimaxService</string>
-    <!-- Name of the wimax state tracker class -->
-    <string name="config_wimaxStateTrackerClassname">android.net.fourG.wimax.WimaxStateTracker</string>
+    <string name="config_wimaxServiceClassname" translatable="false"></string>
+    <!-- Name of the wimax state tracker clas -->
+    <string name="config_wimaxStateTrackerClassname" translatable="false"></string>
 
     <!-- enable screen saver feature -->
     <bool name="config_enableDreams">false</bool>
@@ -937,7 +879,7 @@
     </integer-array>
 
     <!-- Set to true to add links to Cell Broadcast app from Settings and MMS app. -->
-    <bool name="config_cellBroadcastAppLinks">true</bool>
+    <bool name="config_cellBroadcastAppLinks">false</bool>
 
     <!-- Values greater or equal to 0 will enable electronbeam screen-on
          animation with the specified delay (in milliseconds), -1 will disable the animation -->
@@ -978,7 +920,7 @@
     <integer name="config_deviceHardwareKeys">15</integer>
 
     <!-- If true, adds support for no delay A2DP in Samsung devices -->
-    <bool name="config_noDelayInATwoDP">true</bool>
+    <bool name="config_noDelayInATwoDP">false</bool>
 
     <!-- LUN file to be used by legacy USB manager.
          The existence of this file will be used to determine in the

@@ -27,7 +27,6 @@ import android.os.Message;
 import android.os.Parcel;
 import android.telephony.SmsMessage;
 import android.os.SystemProperties;
-import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -42,49 +41,20 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * As stands, the RIL supports calling get subscription source which can
- * handle both ruim and nv qc devices. The lteOnCdma property allows
- * for the devices to provision for multiple cdma dun types at run time. This
- * extension of shared merely fixes nuance issues arising from the differences
- * caused by embedded SIM and legacy CDMA.
+ * Samsung CDMA RIL doesn't send CDMA NV in RIUM infomation format which causes
+ * the CDMA RIL stack to crash and end up not being provisioned. Samsung put
+ * CDMA NV in GSM format. I forced the RIL stack to process CDMA NV request as a
+ * GSM SIM in CDMA mode. Custom Qualcomm No SimReady RIL using the latest Uicc
+ * stack
+ * 
  * {@hide}
  */
 public class SamsungCDMAQualcommRIL extends QualcommSharedRIL implements
 CommandsInterface {
-    private Object mSMSLock = new Object();
-    private boolean mIsSendingSMS = false;
-    public static final long SEND_SMS_TIMEOUT_IN_MS = 30000;
 
     public SamsungCDMAQualcommRIL(Context context, int networkMode,
             int cdmaSubscription) {
         super(context, networkMode, cdmaSubscription);
-    }
-
-    @Override
-    public void
-    sendCdmaSms(byte[] pdu, Message result) {
-        // Do not send a new SMS until the response for the previous SMS has been received
-        //   * for the error case where the response never comes back, time out after
-        //     30 seconds and just try the next CDMA_SEND_SMS
-        synchronized (mSMSLock) {
-            long timeoutTime  = SystemClock.elapsedRealtime() + SEND_SMS_TIMEOUT_IN_MS;
-            long waitTimeLeft = SEND_SMS_TIMEOUT_IN_MS;
-            while (mIsSendingSMS && (waitTimeLeft > 0)) {
-                Log.d(LOG_TAG, "sendCdmaSms() waiting for response of previous CDMA_SEND_SMS");
-                try {
-                    mSMSLock.wait(waitTimeLeft);
-                } catch (InterruptedException ex) {
-                    // ignore the interrupt and rewait for the remainder
-                }
-                waitTimeLeft = timeoutTime - SystemClock.elapsedRealtime();
-            }
-            if (waitTimeLeft <= 0) {
-                Log.e(LOG_TAG, "sendCdmaSms() timed out waiting for response of previous CDMA_SEND_SMS");
-            }
-            mIsSendingSMS = true;
-        }
-
-        super.sendCdmaSms(pdu, result);
     }
 
     @Override
@@ -296,17 +266,5 @@ CommandsInterface {
         }
 
         super.notifyRegistrantsCdmaInfoRec(infoRec);
-    }
-
-    @Override
-    protected Object
-    responseSMS(Parcel p) {
-        // Notify that sendSMS() can send the next SMS
-        synchronized (mSMSLock) {
-            mIsSendingSMS = false;
-            mSMSLock.notify();
-        }
-
-        return super.responseSMS(p);
     }
 }
