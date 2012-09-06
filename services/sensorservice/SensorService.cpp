@@ -44,6 +44,7 @@
 #include "LinearAccelerationSensor.h"
 #include "OrientationSensor.h"
 #include "RotationVectorSensor.h"
+#include "RotationVectorSensor2.h"
 #include "SensorFusion.h"
 #include "SensorService.h"
 
@@ -124,6 +125,12 @@ void SensorService::onFirstRef()
                 if (atoi(value)) {
                     registerVirtualSensor( new GyroDriftSensor() );
                 }
+            } else if (orientationIndex != -1) {
+                // If we don't have a gyro but have a orientation sensor from
+                // elsewhere, we can compute rotation vector from that.
+                // (Google Maps expects rotation vector sensor to exist.)
+
+                registerVirtualSensor( &RotationVectorSensor2::getInstance() );
             }
 
             // build the sensor list returned to users
@@ -256,11 +263,17 @@ bool SensorService::threadLoop()
                         fusion.process(event[i]);
                     }
                 }
+                RotationVectorSensor2& rv2(RotationVectorSensor2::getInstance());
+                if (rv2.isEnabled()) {
+                    for (size_t i=0 ; i<size_t(count) ; i++) {
+                        rv2.process(event[i]);
+                    }
+                }
                 for (size_t i=0 ; i<size_t(count) && k<minBufferSize ; i++) {
                     for (size_t j=0 ; j<activeVirtualSensorCount ; j++) {
                         if (count + k >= minBufferSize) {
                             ALOGE("buffer too small to hold all events: "
-                                    "count=%u, k=%u, size=%u",
+                                    "count=%ld, k=%ld, size=%ld",
                                     count, k, minBufferSize);
                             break;
                         }
