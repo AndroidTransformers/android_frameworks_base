@@ -35,7 +35,12 @@ public class AudioFormat {
     /** Audio data format: PCM 16 bit per sample. Guaranteed to be supported by devices. */
     public static final int ENCODING_PCM_16BIT = 2;
     /** Audio data format: PCM 8 bit per sample. Not guaranteed to be supported by devices. */
-    public static final int ENCODING_PCM_8BIT = 3;
+    public static final int ENCODING_PCM_8BIT = 3;  // accessed by native code
+    public static final int ENCODING_AMRNB = 100;   // accessed by native code
+    public static final int ENCODING_AMRWB = 101;   // accessed by native code
+    public static final int ENCODING_EVRC = 102;    // accessed by native code
+    public static final int ENCODING_EVRCB = 103;   // accessed by native code
+    public static final int ENCODING_EVRCWB = 104;  // accessed by native code
 
     /** Invalid audio channel configuration */
     /** @deprecated use CHANNEL_INVALID instead  */
