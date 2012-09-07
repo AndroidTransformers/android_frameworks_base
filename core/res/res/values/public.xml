@@ -3856,4 +3856,7 @@
 
   <java-symbol type="string" name="config_legacyUmsLunFile" />
 
+  <!-- HW rotation lock -->
+  <java-symbol type="string" name="toast_rotation_unlocked" />
+  <java-symbol type="string" name="toast_rotation_locked" />
 </resources>
