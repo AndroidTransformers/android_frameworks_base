@@ -212,6 +212,9 @@ public class PhoneStatusBar extends BaseStatusBar {
     private boolean mCarrierLabelVisible = false;
     private int mCarrierLabelHeight;
 
+    // clock
+    private boolean mShowClock;
+
     // drag bar
     CloseDragHandle mCloseView;
     private int mCloseViewHeight;
