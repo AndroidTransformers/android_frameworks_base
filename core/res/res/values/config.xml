@@ -926,8 +926,6 @@
          kill the foreground app. -->
     <integer name="config_backKillTimeout">750</integer>
 
-    <!-- If true, adds support for no delay A2DP in Samsung devices -->
-    <bool name="config_noDelayInATwoDP">true</bool>
 
     <!-- LUN file to be used by legacy USB manager.
          The existence of this file will be used to determine in the
