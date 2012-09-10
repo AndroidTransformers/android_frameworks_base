@@ -122,7 +122,7 @@ public class ThumbnailUtils {
 
                 options.inDither = false;
                 options.inPreferredConfig = Bitmap.Config.ARGB_8888;
-                bitmap = BitmapFactory.decodeFileDescriptor(fd, null, options);
+                bitmap = BitmapFactory.decodeFileDescriptor(fd, null, options); 
             } catch (IOException ex) {
                 Log.e(TAG, "", ex);
             } catch (OutOfMemoryError oom) {
@@ -130,7 +130,7 @@ public class ThumbnailUtils {
             } finally {
                 try {
                     if (stream != null) {
-                        stream.close();
+                        stream.close(); 
                     }
                 } catch (IOException ex) {
                     Log.e(TAG, "", ex);
@@ -161,6 +161,8 @@ public class ThumbnailUtils {
         try {
             retriever.setDataSource(filePath);
             bitmap = retriever.getFrameAtTime(-1);
+        } catch (OutOfMemoryError e) {
+                Log.e(TAG, "Got OOM error", e);
         } catch (IllegalArgumentException ex) {
             // Assume this is a corrupt video file
         } catch (RuntimeException ex) {
