@@ -659,7 +659,7 @@ int register_android_media_AudioRecord(JNIEnv *env)
            || !android_media_getIntConstantFromClass(env, audioFormatClass,
                 JAVA_AUDIOFORMAT_CLASS_NAME,
                 JAVA_CONST_PCM8_NAME, &(javaAudioRecordFields.PCM8))
-           || !android_media_getIntConstantFromClass(env, audioFormatClass,
+           || !android_media_getIntConstantFromClass(env,  audioFormatClass,
                 JAVA_AUDIOFORMAT_CLASS_NAME,
                 JAVA_CONST_AMRNB_NAME, &(javaAudioRecordFields.AMRNB))
            || !android_media_getIntConstantFromClass(env, audioFormatClass,
@@ -673,7 +673,7 @@ int register_android_media_AudioRecord(JNIEnv *env)
                 JAVA_CONST_EVRCB_NAME, &(javaAudioRecordFields.EVRCB))
            || !android_media_getIntConstantFromClass(env, audioFormatClass,
                 JAVA_AUDIOFORMAT_CLASS_NAME,
-                JAVA_CONST_EVRCWB_NAME, &(javaAudioRecordFields.EVRCWB))) {
+                JAVA_CONST_EVRCWB_NAME, &(javaAudioRecordFields.EVRCWB))) { 
         // error log performed in getIntConstantFromClass()
         return -1;
     }

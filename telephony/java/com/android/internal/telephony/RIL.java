@@ -50,6 +50,7 @@ import android.telephony.SmsMessage;
 import android.text.TextUtils;
 import android.util.Log;
 
+
 import com.android.internal.telephony.gsm.SmsBroadcastConfigInfo;
 import com.android.internal.telephony.gsm.SuppServiceNotification;
 import com.android.internal.telephony.cdma.CdmaCallWaitingNotification;
@@ -274,26 +275,6 @@ public class RIL extends BaseCommands implements CommandsInterface {
             }
         }
     };
-
-    protected Registrant mCatSendSmsResultRegistrant;
-    /**
-     * samsung stk service implementation - set up registrant for sending
-     * sms send result from modem(RIL) to catService
-     * @param h
-     * @param what
-     * @param obj
-     */
-    public void setOnCatSendSmsResult(Handler h, int what, Object obj) {
-        mCatSendSmsResultRegistrant = new Registrant(h, what, obj);
-    }
-
-    /**
-     *
-     * @param h
-     */
-    public void unSetOnCatSendSmsResult(Handler h) {
-        mCatSendSmsResultRegistrant.clear();
-    }
 
     class RILSender extends Handler implements Runnable {
         public RILSender(Looper looper) {
@@ -3733,7 +3714,6 @@ public class RIL extends BaseCommands implements CommandsInterface {
             case RIL_UNSOL_EXIT_EMERGENCY_CALLBACK_MODE: return "UNSOL_EXIT_EMERGENCY_CALLBACK_MODE";
             case RIL_UNSOL_RIL_CONNECTED: return "UNSOL_RIL_CONNECTED";
             case RIL_UNSOL_VOICE_RADIO_TECH_CHANGED: return "UNSOL_VOICE_RADIO_TECH_CHANGED";
-            case RIL_UNSOL_STK_SEND_SMS_RESULT: return "RIL_UNSOL_STK_SEND_SMS_RESULT";
             default: return "<unknown response: "+request+">";
         }
     }

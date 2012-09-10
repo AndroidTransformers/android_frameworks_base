@@ -676,6 +676,7 @@ bool OpenGLRenderer::createFboLayer(Layer* layer, Rect& bounds, sp<Snapshot> sna
         TILERENDERING_END(layer->getFbo(), true);
 #endif
         glBindFramebuffer(GL_FRAMEBUFFER, previousFbo);
+
 #ifdef QCOM_HARDWARE
         TILERENDERING_START(previousFbo);
 #endif

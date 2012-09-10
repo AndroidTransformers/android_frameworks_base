@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2008 The Android Open Source Project
+ * Copyright (c) 2012 Code Aurora Forum. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,6 +36,7 @@ public class AudioFormat {
     /** Audio data format: PCM 16 bit per sample. Guaranteed to be supported by devices. */
     public static final int ENCODING_PCM_16BIT = 2;
     /** Audio data format: PCM 8 bit per sample. Not guaranteed to be supported by devices. */
+
     public static final int ENCODING_PCM_8BIT = 3;  // accessed by native code
     public static final int ENCODING_AMRNB = 100;   // accessed by native code
     public static final int ENCODING_AMRWB = 101;   // accessed by native code

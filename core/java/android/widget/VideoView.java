@@ -80,7 +80,7 @@ public class VideoView extends SurfaceView implements MediaPlayerControl {
     private int         mSurfaceWidth;
     private int         mSurfaceHeight;
     private int         mPreviousWidth;
-    private int         mPreviousHeight;
+    private int         mPreviousHeight; 
     private MediaController mMediaController;
     private OnCompletionListener mOnCompletionListener;
     private MediaPlayer.OnPreparedListener mOnPreparedListener;

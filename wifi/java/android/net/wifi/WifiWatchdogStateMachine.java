@@ -273,6 +273,7 @@ public class WifiWatchdogStateMachine extends StateMachine {
 
         // Disable poor network avoidance, but keep watchdog active for walled garden detection
         if (sWifiOnly || noMobileConnection) {
+
             log("Disabling poor network avoidance for wi-fi only device");
             putSettingsBoolean(contentResolver,
                     Settings.Secure.WIFI_WATCHDOG_POOR_NETWORK_TEST_ENABLED, false);

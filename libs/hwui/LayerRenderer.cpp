@@ -50,6 +50,7 @@ int LayerRenderer::prepareDirty(float left, float top, float right, float bottom
 #ifdef QCOM_HARDWARE
     TILERENDERING_END(previousFbo);
 #endif
+
     glBindFramebuffer(GL_FRAMEBUFFER, mLayer->getFbo());
 
     const float width = mLayer->layer.getWidth();

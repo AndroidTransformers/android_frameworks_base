@@ -219,6 +219,7 @@ public abstract class IccSmsInterfaceManager extends ISms.Stub {
      * @param sentIntent
      * @param deliveryIntent
      */
+
     public void sendRawPduSat(byte[] smsc, byte[] pdu, PendingIntent sentIntent,
             PendingIntent deliveryIntent) {
         mPhone.getContext();

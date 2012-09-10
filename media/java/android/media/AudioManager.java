@@ -494,6 +494,7 @@ public class AudioManager {
         }
     }
 
+
     /**
      * @hide
      */
@@ -971,6 +972,7 @@ public class AudioManager {
             Log.e(TAG, "Dead object in toggleGlobalMute", e);
         }
     }
+
 
     /**
      * forces the stream controlled by hard volume keys

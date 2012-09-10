@@ -504,13 +504,13 @@
     <integer name="config_notificationsBatteryLedOff">2875</integer>
 
     <!-- Allow the menu hard key to be disabled in LockScreen on some devices -->
-    <bool name="config_disableMenuKeyInLockScreen">true</bool>
+    <bool name="config_disableMenuKeyInLockScreen">false</bool>
 
     <!-- Don't show lock screen before unlock screen (PIN/pattern/password) -->
     <bool name="config_enableLockBeforeUnlockScreen">false</bool>
 
     <!-- Diable lockscreen rotation by default -->
-    <bool name="config_enableLockScreenRotation">true</bool>
+    <bool name="config_enableLockScreenRotation">false</bool>
 
     <!-- Enable puk unlockscreen by default.
          If unlock screen is disabled, the puk should be unlocked through Emergency Dialer -->
@@ -760,7 +760,7 @@
     <bool name="config_mms_content_disposition_support">true</bool>
 
     <!-- If this value is true, we handle Samsung CDMA's message ID method -->
-    <bool name="config_smsSamsungCdmaAlternateMessageIDEncoding">true</bool>
+    <bool name="config_smsSamsungCdmaAlternateMessageIDEncoding">false</bool>
 
     <!-- National Language Identifier codes for the following two config items.
          (from 3GPP TS 23.038 V9.1.1 Table 6.2.1.2.4.1):
@@ -803,7 +803,7 @@
     <integer-array name="config_sms_enabled_locking_shift_tables"></integer-array>
 
     <!-- Set to true if the RSSI should always display CDMA signal strength even on EVDO -->
-    <bool name="config_alwaysUseCdmaRssi">true</bool>
+    <bool name="config_alwaysUseCdmaRssi">false</bool>
 
 
     <!-- If this value is true, duplicate Source/Destination port fields
@@ -881,22 +881,15 @@
     <!-- Set to true to add links to Cell Broadcast app from Settings and MMS app. -->
     <bool name="config_cellBroadcastAppLinks">false</bool>
 
-    <!-- Workaround for devices with broken keyboards -->
-    <bool name="config_forceDisableHardwareKeyboard">true</bool>
-
-   <!-- Values greater or equal to 0 will enable electronbeam screen-on
-         animation with the specified delay (in milliseconds), -1 will disable the animation -->
-    <integer name="config_screenOnAnimation">-1</integer>
-    <!-- Flag indicating whether we should enable automatic brightness for
          the button and keyboard backlights. -->
     <bool name="config_autoBrightnessButtonKeyboard">true</bool>
 
+    <!-- Values greater or equal to 0 will enable electronbeam screen-on
+         animation with the specified delay (in milliseconds), -1 will disable the animation -->
+    <integer name="config_screenOnAnimation">-1</integer>
+
     <!-- True will enable the electron beam screen-off animation. -->
     <bool name="config_screenOffAnimation">true</bool>
-
-    <!-- Timeout in MS for how long you have to long-press the back key to
-         kill the foreground app. -->
-    <integer name="config_backKillTimeout">2000</integer>
 
     <!-- Device has a h/w rotation lock switch -->
     <bool name="config_hasRotationLockSwitch">false</bool>
@@ -913,6 +906,9 @@
     <!-- Umts Everest RIL hacks -->
     <bool name="config_umtsEverestRadio">false</bool>
 
+    <!-- If true, adds support for no delay A2DP in Samsung devices -->
+    <bool name="config_noDelayInATwoDP">true</bool>
+
     <!-- Hardware 'face' keys present on the device, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
          of the following keys present:
@@ -925,8 +921,12 @@
          config to 7. -->
     <integer name="config_deviceHardwareKeys">15</integer>
 
+    <!-- Timeout in MS for how long you have to long-press the back key to
+         kill the foreground app. -->
+    <integer name="config_backKillTimeout">750</integer>
+
     <!-- If true, adds support for no delay A2DP in Samsung devices -->
-    <bool name="config_noDelayInATwoDP">true</bool>
+    <bool name="config_noDelayInATwoDP">false</bool>
 
     <!-- LUN file to be used by legacy USB manager.
          The existence of this file will be used to determine in the

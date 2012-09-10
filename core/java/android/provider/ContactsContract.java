@@ -171,7 +171,7 @@ public final class ContactsContract {
      */
     public static final String STREQUENT_PHONE_ONLY = "strequent_phone_only";
 
-    /**
+    /** trim = jlj = keyword
      * A key to a boolean in the "extras" bundle of the cursor.
      * The boolean indicates that the provider did not create a snippet and that the client asking
      * for the snippet should do it (true means the snippeting was deferred to the client).
@@ -8362,7 +8362,7 @@ public final class ContactsContract {
                 // Line contains the query string - now search for it at the start of tokens.
                 List<String> lineTokens = new ArrayList<String>();
                 List<Integer> tokenOffsets = new ArrayList<Integer>();
-                split(contentLine.trim(), lineTokens, tokenOffsets);
+                split(contentLine, lineTokens, tokenOffsets);
 
                 // As we find matches against the query, we'll populate this list with the marked
                 // (or unchanged) tokens.

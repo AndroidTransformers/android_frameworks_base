@@ -56,6 +56,7 @@ import android.util.Log;
 import android.util.NtpTrustedTime;
 import android.util.SparseIntArray;
 
+
 import com.android.internal.app.IBatteryStats;
 import com.android.internal.location.GpsNetInitiatedHandler;
 import com.android.internal.location.GpsNetInitiatedHandler.GpsNiNotification;
@@ -1529,7 +1530,8 @@ public class GpsLocationProvider implements LocationProviderInterface {
                 if (networkType == TelephonyManager.NETWORK_TYPE_UMTS
                     || networkType == TelephonyManager.NETWORK_TYPE_HSDPA
                     || networkType == TelephonyManager.NETWORK_TYPE_HSUPA
-                    || networkType == TelephonyManager.NETWORK_TYPE_HSPA) {
+                    || networkType == TelephonyManager.NETWORK_TYPE_HSPA
+                    || networkType == TelephonyManager.NETWORK_TYPE_HSPAP) {
                     type = AGPS_REF_LOCATION_TYPE_UMTS_CELLID;
                 } else {
                     type = AGPS_REF_LOCATION_TYPE_GSM_CELLID;

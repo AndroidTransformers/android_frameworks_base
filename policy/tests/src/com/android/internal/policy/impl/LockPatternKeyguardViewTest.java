@@ -92,11 +92,6 @@ public class LockPatternKeyguardViewTest extends AndroidTestCase {
         }
 
         /** {@inheritDoc} */
-        public boolean suspendRecreate() {
-            return false;
-        }
-
-        /** {@inheritDoc} */
         public boolean needsInput() {
             return false;
         }

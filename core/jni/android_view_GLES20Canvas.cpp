@@ -890,7 +890,7 @@ static JNINativeMethod gMethods[] = {
     { "nSetViewport",       "(III)V",          (void*) android_view_GLES20Canvas_setViewport },
     { "nPrepare",           "(IZ)I",           (void*) android_view_GLES20Canvas_prepare },
     { "nPrepareDirty",      "(IIIIIZ)I",       (void*) android_view_GLES20Canvas_prepareDirty },
-    { "nStartTileRendering","(IIIII)V",        (void*) android_view_GLES20Canvas_startTileRendering},
+	{ "nStartTileRendering","(IIIII)V",        (void*) android_view_GLES20Canvas_startTileRendering},
     { "nEndTileRendering",  "(I)V",            (void*) android_view_GLES20Canvas_endTileRendering},
     { "nFinish",            "(I)V",            (void*) android_view_GLES20Canvas_finish },
 

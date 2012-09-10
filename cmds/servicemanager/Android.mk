@@ -16,3 +16,4 @@ ifeq ($(BOARD_USE_SECTVOUT),true)
     LOCAL_CFLAGS += -DSECTVOUT
 endif
 include $(BUILD_EXECUTABLE)
+

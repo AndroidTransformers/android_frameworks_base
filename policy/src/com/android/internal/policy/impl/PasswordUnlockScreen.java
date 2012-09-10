@@ -268,11 +268,6 @@ public class PasswordUnlockScreen extends LinearLayout implements KeyguardScreen
     }
 
     /** {@inheritDoc} */
-    public boolean suspendRecreate() {
-        return false;
-    }
-
-    /** {@inheritDoc} */
     public boolean needsInput() {
         return mUseSystemIME && mIsAlpha;
     }

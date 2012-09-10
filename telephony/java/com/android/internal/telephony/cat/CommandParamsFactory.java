@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+
 package com.android.internal.telephony.cat;
 
 import android.content.res.Resources;
@@ -136,10 +137,10 @@ class CommandParamsFactory extends Handler {
             case DISPLAY_TEXT:
                 cmdPending = processDisplayText(cmdDet, ctlvs);
                 break;
-             case SET_UP_IDLE_MODE_TEXT:
-                 cmdPending = processSetUpIdleModeText(cmdDet, ctlvs);
-                 break;
-             case GET_INKEY:
+            case SET_UP_IDLE_MODE_TEXT:
+                cmdPending = processSetUpIdleModeText(cmdDet, ctlvs);
+                break;
+            case GET_INKEY:
                 cmdPending = processGetInkey(cmdDet, ctlvs);
                 break;
             case GET_INPUT:
@@ -158,21 +159,21 @@ class CommandParamsFactory extends Handler {
                 processRefresh(cmdDet, ctlvs);
                 cmdPending = false;
                 break;
-             case LAUNCH_BROWSER:
-                 cmdPending = processLaunchBrowser(cmdDet, ctlvs);
-                 break;
-             case PLAY_TONE:
+            case LAUNCH_BROWSER:
+                cmdPending = processLaunchBrowser(cmdDet, ctlvs);
+                break;
+            case PLAY_TONE:
                 cmdPending = processPlayTone(cmdDet, ctlvs);
                 break;
-             case PROVIDE_LOCAL_INFORMATION:
+            case PROVIDE_LOCAL_INFORMATION:
                 cmdPending = processProvideLocalInfo(cmdDet, ctlvs);
                 break;
-             case OPEN_CHANNEL:
-             case CLOSE_CHANNEL:
-             case RECEIVE_DATA:
-             case SEND_DATA:
-                 cmdPending = processBIPClient(cmdDet, ctlvs);
-                 break;
+            case OPEN_CHANNEL:
+            case CLOSE_CHANNEL:
+            case RECEIVE_DATA:
+            case SEND_DATA:
+                cmdPending = processBIPClient(cmdDet, ctlvs);
+                break;
             default:
                 // unsupported proactive commands
                 mCmdParams = new CommandParams(cmdDet);

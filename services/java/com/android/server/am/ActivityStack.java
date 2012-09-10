@@ -1465,10 +1465,6 @@ final class ActivityStack {
 
         if (DEBUG_SWITCH) Slog.v(TAG, "Resuming " + next);
 
-        if (mActivityTrigger != null) {
-            mActivityTrigger.activityResumeTrigger(next.intent);
-        }
-
         // If we are currently pausing an activity, then don't do anything
         // until that is done.
         if (mPausingActivity != null) {

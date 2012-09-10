@@ -71,6 +71,7 @@ import static android.provider.Settings.System.STAY_ON_WHILE_PLUGGED_IN;
 import static android.provider.Settings.System.WINDOW_ANIMATION_SCALE;
 import static android.provider.Settings.System.TRANSITION_ANIMATION_SCALE;
 
+
 import com.android.internal.app.ThemeUtils;
 
 import java.io.FileDescriptor;

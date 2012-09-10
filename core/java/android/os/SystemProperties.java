@@ -33,7 +33,7 @@ public class SystemProperties
     public static final int PROP_NAME_MAX = 31;
     public static final int PROP_VALUE_MAX = 91;
 
-    public static final boolean QCOM_HARDWARE = native_get_boolean("com.qc.hardware", false);
+	public static final boolean QCOM_HARDWARE = native_get_boolean("com.qc.hardware", false);
 
     private static final ArrayList<Runnable> sChangeCallbacks = new ArrayList<Runnable>();
 

@@ -505,6 +505,7 @@ class ContextImpl extends Context {
                 }});
     }
 
+
     static ContextImpl getImpl(Context context) {
         Context nextContext;
         while ((context instanceof ContextWrapper) &&

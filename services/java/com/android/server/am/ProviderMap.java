@@ -127,12 +127,7 @@ public class ProviderMap {
                 Slog.i(TAG,
                         "Removing from providersByName name=" + name + " user="
                         + (optionalUserId == -1 ? Binder.getOrigCallingUser() : optionalUserId));
-            HashMap<String, ContentProviderRecord> map = getProvidersByName(optionalUserId);
-            // map returned by getProvidersByName wouldn't be null
-            map.remove(name);
-            if (map.size() == 0) {
-                mProvidersByNamePerUser.remove(optionalUserId);
-            }
+            getProvidersByName(optionalUserId).remove(name);
         }
     }
 
@@ -146,12 +141,7 @@ public class ProviderMap {
                 Slog.i(TAG,
                         "Removing from providersByClass name=" + name + " user="
                         + (optionalUserId == -1 ? Binder.getOrigCallingUser() : optionalUserId));
-            HashMap<ComponentName, ContentProviderRecord> map = getProvidersByClass(optionalUserId);
-            // map returned by getProvidersByClass wouldn't be null
-            map.remove(name);
-            if (map.size() == 0) {
-                mProvidersByClassPerUser.remove(optionalUserId);
-            }
+            getProvidersByClass(optionalUserId).remove(name);
         }
     }
 

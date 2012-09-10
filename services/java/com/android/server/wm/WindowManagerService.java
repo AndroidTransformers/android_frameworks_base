@@ -5181,7 +5181,7 @@ public class WindowManagerService extends IWindowManager.Stub
         ShutdownThread.rebootSafeMode(getUiContext(), true);
     }
 
-    // Called by window manager policy.  Not exposed externally.
+    // Called by window manager policy. Not exposed externally.
     @Override
     public void reboot() {
         ShutdownThread.reboot(getUiContext(), null, true);
@@ -5557,9 +5557,6 @@ public class WindowManagerService extends IWindowManager.Stub
 
             // The screenshot API does not apply the current screen rotation.
             rot = mDisplay.getRotation();
-            // Allow for abnormal hardware orientation
-            rot = (rot + (android.os.SystemProperties.getInt("ro.sf.hwrotation",0) / 90 )) % 4;
-
             int fw = frame.width();
             int fh = frame.height();
 

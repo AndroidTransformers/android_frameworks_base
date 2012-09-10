@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2008 The Android Open Source Project
+ * Copyright (c) 2012, Code  Aurora Forum. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -1035,7 +1036,7 @@ int register_android_media_AudioTrack(JNIEnv *env)
 ) {
         // error log performed in android_media_getIntConstantFromClass()
         return -1;
-    }
+    } 
     // Get the stream types from the AudioManager class
     jclass audioManagerClass = NULL;
     audioManagerClass = env->FindClass(JAVA_AUDIOMANAGER_CLASS_NAME);

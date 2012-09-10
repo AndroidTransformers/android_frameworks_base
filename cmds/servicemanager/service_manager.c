@@ -10,6 +10,7 @@
 
 #include "binder.h"
 
+
 #if 0
 #define ALOGI(x...) fprintf(stderr, "svcmgr: " x)
 #define ALOGE(x...) fprintf(stderr, "svcmgr: " x)

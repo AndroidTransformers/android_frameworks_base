@@ -1639,20 +1639,14 @@ public final class Settings {
         public static final String VOLUME_ADJUST_SOUNDS_ENABLED = "volume_adjust_sounds_enabled";
 
         /**
-         * Volume Overlay Mode, This is behaviour of the volume overlay panel
-         * Defaults to 0 - which is simple
+         * Volume Overlay Mode. This is the style of the volume overlay panel.
+         *      0 - Single
+         *      1 - Expandable (default)
+         *      2 - Expanded
+         *      3 - None
          * @hide
          */
         public static final String MODE_VOLUME_OVERLAY = "mode_volume_overlay";
-
-        /** @hide */
-        public static final int VOLUME_OVERLAY_SINGLE = 0;
-        /** @hide */
-        public static final int VOLUME_OVERLAY_EXPANDABLE = 1;
-        /** @hide */
-        public static final int VOLUME_OVERLAY_EXPANDED = 2;
-        /** @hide */
-        public static final int VOLUME_OVERLAY_NONE = 3;
 
         /**
          * Ringer mode. This is used internally, changing this value will not
@@ -2840,6 +2834,15 @@ public final class Settings {
          */
         public static final String UI_FORCE_OVERFLOW_BUTTON = "ui_force_overflow_button";
 
+         /**
+          * Volume keys control cursor in text fields (default is 0)
+          * 0 - Disabled
+          * 1 - Volume up/down moves cursor left/right
+          * 2 - Volume up/down moves cursor right/left
+          * @hide
+          */
+         public static final String VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
+
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
@@ -3166,6 +3169,12 @@ public final class Settings {
         public static final String TABLET_UI = "tablet_ui";
 
         /**
+         * Show the NavBar dialog in Power menu
+         * @hide
+         */
+        public static final String POWER_DIALOG_SHOW_NAVBAR_HIDE = "power_dialog_show_navbar_hide";
+
+        /**
          * NFC polling mode configuration key
          *
          * @hide
@@ -3188,6 +3197,31 @@ public final class Settings {
          * @hide
          */
         public static final String NAVIGATION_BAR_HEIGHT_LANDSCAPE = "navigation_bar_height_landscape";
+
+        /**
+         * @hide
+         */
+        public static final String STATUSBAR_TOGGLES_ENABLED_COLOR = "statusbar_toggles_enabled_color";
+
+        /**
+         * @hide
+         */
+        public static final String STATUSBAR_TOGGLES_DISABLED_COLOR = "statusbar_toggles_disabled_color";
+
+        /**
+         * @hide
+         */
+        public static final String STATUSBAR_TOGGLES_TEXT_COLOR = "statusbar_toggles_text_color";
+
+        /**
+         * @hide
+         */
+        public static final String STATUSBAR_TOGGLES_ALPHA = "statusbar_toggles_alpha";
+
+        /**
+         * @hide
+         */
+        public static final String STATUSBAR_TOGGLES_BACKGROUND = "statusbar_toggles_background";
 
         /**
          * Navigation bar height in landscape if the bar is along the side of the device
@@ -3327,6 +3361,8 @@ public final class Settings {
                 "navigation_custom_app_intent_2",
                 "navigation_custom_app_intent_3",
                 "navigation_custom_app_intent_4",
+                "navigation_custom_app_intent_5",
+                "navigation_custom_app_intent_6",
         };
         
         /**
@@ -3340,6 +3376,8 @@ public final class Settings {
                 "navigation_longpress_app_intent_2",
                 "navigation_longpress_app_intent_3",
                 "navigation_longpress_app_intent_4",
+                "navigation_longpress_app_intent_5",
+                "navigation_longpress_app_intent_6",
         };
         
         /**
@@ -3355,6 +3393,8 @@ public final class Settings {
                 "navigation_custom_app_icon_2",
                 "navigation_custom_app_icon_3",
                 "navigation_custom_app_icon_4",
+                "navigation_custom_app_icon_5",
+                "navigation_custom_app_icon_6",
         };
 
         /**
@@ -3452,6 +3492,90 @@ public final class Settings {
          * @hide
          */
         public static final String CUSTOM_CARRIER_LABEL = "custom_carrier_label";
+        
+        /**
+         * @hide
+         */
+        public static final String STATUSBAR_TOGGLES_USE_BUTTONS = "statusbar_toggles_use_buttons";
+
+        /**
+         * @hide
+         */
+        public static final String STATUS_BAR_BRIGHTNESS_SLIDER = "statusbar_brightness_slider";
+
+        /**
+         * @hide
+         */
+        public static final String STATUSBAR_TOGGLES = "statusbar_toggles";
+
+        /**
+         * @hide
+         */
+        public static final String STATUSBAR_TOGGLES_STYLE = "statusbar_toggles_style";
+
+        /**
+         * @hide
+         */
+        public static final String STATUSBAR_TOGGLES_BRIGHTNESS_LOC = "statusbar_toggles_brightness_loc";
+
+        /**
+         * @hide
+         */
+        public static final String STATUSBAR_TOGGLES_NUMBER_PER_ROW = "statusbar_toggles_number_per_row";
+
+        /**
+         * @hide
+         */
+        public static final String STATUS_BAR_LAYOUT = "statusbar_layout";
+
+        /**
+         * whether to hide the kill-all-button on recent switcher
+         *
+         * @hide
+         */
+        public static final String RECENT_KILL_ALL_BUTTON = "recent_kill_all_button";
+
+        /**
+         * whether to enable end app on back longpress functionality
+         *
+         * @hide
+         */
+        public static final String KILL_APP_LONGPRESS_BACK = "kill_app_longpress_back";
+
+        /**
+         * Whether to show statusbar signal text
+         *
+         * @hide
+         */
+        public static final String STATUSBAR_SIGNAL_TEXT = "statusbar_signal_text";
+
+        /**
+         * statusbar signal text color
+         *
+         * @hide
+         */
+        public static final String STATUSBAR_SIGNAL_TEXT_COLOR = "statusbar_signal_text_color";
+
+        /**
+         * whether to hide the signal barss
+         *
+         * @hide
+         */
+        public static final String STATUSBAR_HIDE_SIGNAL_BARS = "statusbar_hide_signal_bars";
+
+        /**
+         * Whether to show statusbar WiFi signal text
+         *
+         * @hide
+         */
+        public static final String STATUSBAR_WIFI_SIGNAL_TEXT = "statusbar_wifi_signal_text";
+
+        /**
+         * statusbar WIFI signal text color
+         *
+         * @hide
+         */
+        public static final String STATUSBAR_WIFI_SIGNAL_TEXT_COLOR = "statusbar_wifi_signal_text_color";
     }
 
     /**

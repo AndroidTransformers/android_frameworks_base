@@ -17,13 +17,6 @@
 
 package android.app;
 
-import com.android.internal.app.IAssetRedirectionManager;
-import com.android.internal.os.BinderInternal;
-import com.android.internal.os.RuntimeInit;
-import com.android.internal.os.SamplingProfilerIntegration;
-
-import org.apache.harmony.xnet.provider.jsse.OpenSSLSocketImpl;
-
 import android.app.backup.BackupAgent;
 import android.content.BroadcastReceiver;
 import android.content.ComponentCallbacks2;
@@ -32,13 +25,13 @@ import android.content.ContentProvider;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.IContentProvider;
-import android.content.IIntentReceiver;
 import android.content.Intent;
+import android.content.IIntentReceiver;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
 import android.content.pm.IPackageManager;
 import android.content.pm.InstrumentationInfo;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ProviderInfo;
@@ -95,6 +88,13 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.WindowManagerImpl;
 import android.renderscript.RenderScript;
+
+import com.android.internal.app.IAssetRedirectionManager;
+import com.android.internal.os.BinderInternal;
+import com.android.internal.os.RuntimeInit;
+import com.android.internal.os.SamplingProfilerIntegration;
+
+import org.apache.harmony.xnet.provider.jsse.OpenSSLSocketImpl;
 
 import java.io.File;
 import java.io.FileDescriptor;

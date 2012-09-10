@@ -30,6 +30,7 @@ import android.os.Message;
 import android.os.SystemProperties;
 import android.util.Log;
 
+
 /**
  * The AudioRecord class manages the audio resources for Java applications
  * to record audio from the audio input hardware of the platform. This is

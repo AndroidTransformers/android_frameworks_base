@@ -115,7 +115,7 @@ class GLES20Canvas extends HardwareCanvas {
         } else {
             mFinalizer = new CanvasFinalizer(mRenderer);
         }
-    }
+	}
 
     protected void resetDisplayListRenderer() {
         nResetDisplayListRenderer(mRenderer);

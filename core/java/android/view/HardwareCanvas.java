@@ -46,7 +46,7 @@ public abstract class HardwareCanvas extends Canvas {
      */
     public abstract int onPreDraw(Rect dirty);
     abstract void startTileRendering(Rect dirty);
-    abstract void endTileRendering();
+    abstract void endTileRendering(); 
 
     /**
      * Invoked after all drawing operation have been performed.
